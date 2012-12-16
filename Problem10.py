@@ -1,29 +1,14 @@
-initial_primes = [2]
-
-def isPrime(n):
-	for prime in initial_primes:
-		if n % prime == 0:
-			return False
-	return True
+import math
 
 def erasto(n):
-	for candidate in xrange(3, n, 2):
-		if isPrime(candidate): 
-			if candidate**2 > n:
-				break
-			initial_primes.append(candidate)
-
 	numbers = [True]*n
-	
-	for p in initial_primes:
-		for x in xrange(p, n, p):
-			if p != x:
-				numbers[x] = False
-	
-	numbers[1] = False
-	primes = []
+	for i in range(2, int(math.ceil(math.sqrt(n)))):
+		if numbers[i]:
+			for j in range(i*i, n, i):
+				numbers[j] = False
 
-	for x in xrange(0, n):
+	primes = []
+	for x in range(2, n):
 		if numbers[x]:
 			primes.append(x)
 
