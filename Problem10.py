@@ -1,4 +1,3 @@
-numbers = []
 initial_primes = [2]
 
 def isPrime(n):
