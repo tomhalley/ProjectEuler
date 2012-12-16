@@ -14,8 +14,7 @@ def erasto(n):
 				break
 			initial_primes.append(candidate)
 
-	for x in xrange(0, n):
-		numbers.insert(x, True)
+	numbers = [True]*n
 	
 	for p in initial_primes:
 		for x in xrange(p, n, p):
